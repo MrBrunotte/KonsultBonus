@@ -1,0 +1,48 @@
+﻿@model IEnumerable<KonsultBonus.Models.Konsulter>
+
+@{
+    ViewData["Title"] = "Konsult";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddKonsult" class="btn btn-success myBtn">Registrera ny konsult</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartingDate)
+            </td>
+            <td>
+                <a asp-action="UpdateKonsult" asp-route-id="@item.KonsultID" class="btn btn-primary myBtn">Uppdatera konsult</a> |
+                <form asp-action="DeleteKonsult" asp-route-id="@item.KonsultID">
+                    <button type="submit" class="btn btn-danger myBtn">Radera konsult</button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
