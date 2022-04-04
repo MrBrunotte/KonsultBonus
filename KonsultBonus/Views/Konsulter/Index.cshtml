@@ -4,7 +4,7 @@
     ViewData["Title"] = "Konsult";
 }
 
-<h1>Index</h1>
+<h1 class="myH1">Gisys Konsulter</h1>
 
 <p>
     <a asp-action="AddKonsult" class="btn btn-success myBtn">Registrera ny konsult</a>
@@ -12,6 +12,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KonsultID)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
@@ -21,12 +24,17 @@
             <th>
                 @Html.DisplayNameFor(model => model.StartingDate)
             </th>
-            <th></th>
+            <th>
+                Edit
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KonsultID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
@@ -37,9 +45,9 @@
                 @Html.DisplayFor(modelItem => item.StartingDate)
             </td>
             <td>
-                <a asp-action="UpdateKonsult" asp-route-id="@item.KonsultID" class="btn btn-primary myBtn">Uppdatera konsult</a> |
+                <a asp-action="UpdateKonsult" asp-route-id="@item.KonsultID" class="btn myBtn myBtnEdit">Uppdatera konsult</a>
                 <form asp-action="DeleteKonsult" asp-route-id="@item.KonsultID">
-                    <button type="submit" class="btn btn-danger myBtn">Radera konsult</button>
+                    <button type="submit" class="btn myBtn myBtnDelete">Radera konsult</button>
                 </form>
             </td>
         </tr>

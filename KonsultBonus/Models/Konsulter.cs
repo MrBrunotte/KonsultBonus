@@ -10,6 +10,7 @@ namespace KonsultBonus.Models
     public class Konsulter
     {
         [Key]
+        [DisplayName("Id")]
         public int KonsultID { get; set; }
         [DisplayName("Förnamn")]
         public string FirstName { get; set; }
