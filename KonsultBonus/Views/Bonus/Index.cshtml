@@ -1,0 +1,56 @@
+﻿@model KonsultBonus.Models.Bonus
+
+@{
+    ViewData["Title"] = "Bonus";
+}
+
+<h1 class="myH1">Bonus uträkning</h1>
+<h4>Bonusberäkning</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("/Index", "bonus", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="NettoResultat" class="control-label">Netto resultat</label>
+                <input type="text" class="form-control" id="NettoResultat" name="NettoResultat" value="@Model.NettoResultat" />
+            </div>
+
+            <div class="form-group">
+                <label for="Bonuspott" class="control-label">Bonuspott</label>
+                <input type="text" class="form-control" id="Bonuspott" name="Bonuspott" value="@Model.Bonuspott" />
+            </div>
+
+            <div class="form-group">
+                <label for="NumberOfYearsInFirm" class="control-label">Anställning (år)</label>
+                <input type="text" class="form-control" id="NumberOfYearsInFirm" name="NumberOfYearsInFirm" value="@Model.NumberOfYearsInFirm" />
+            </div>
+
+            <div class="form-group">
+                <label for="DebiteradeTimmar" class="control-label">Debiterade timmar</label>
+                <input type="text" class="form-control" id="DebiteradeTimmar" name="DebiteradeTimmar" value="@Model.DebiteradeTimmar" />
+            </div>
+
+            <div class="form-group">
+                <label for="BonusProcent" class="control-label">Bonus i %</label>
+                <input type="text" class="form-control" id="DebiteradeTimmar" name="BonusProcent" value="@Model.BonusProcent" />
+            </div>
+
+            <div class="form-group">
+                <label for="BonusKr" class="control-label">Bonus i kr</label>
+                <input type="text" class="form-control" id="BonusKr" name="BonusKr" value="@Model.BonusKr" />
+            </div>
+
+            <button type="submit" class="btn btn-success myBtn" id="add" value="add">Beräkna bonus</button>
+
+        }
+    </div>
+</div>
+<hr />
+<p>
+    <a asp-controller="Home" asp-action="Index" class="backAnchor">Tillbaka till startsida</a>
+</p>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

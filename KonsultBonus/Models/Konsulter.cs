@@ -17,6 +17,7 @@ namespace KonsultBonus.Models
         [DisplayName("Efternamn")]
         public string LastName { get; set; }
         [DisplayName("Anställningsdatum")]
+
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime StartingDate { get; set; }
